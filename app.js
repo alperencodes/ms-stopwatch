@@ -37,7 +37,7 @@ function start() {
   if (running) return;
   startedAt = performance.now();
   setRunning(true);
-  status.textContent = "Running — press Space to record notes";
+  status.textContent = "Running — press Space, Y, Z, or X to record notes";
   drawTimer();
 }
 
@@ -70,7 +70,7 @@ function renderNotes() {
   if (!notes.length) {
     const empty = document.createElement("li");
     empty.className = "empty";
-    empty.textContent = "No notes yet. Start the timer and press Space.";
+    empty.textContent = "No notes yet. Start the timer and press Space, Y, Z, or X.";
     notesList.append(empty);
     return;
   }
@@ -139,7 +139,8 @@ undoButton.addEventListener("click", () => {
 
 document.addEventListener("keydown", (event) => {
   const editing = event.target instanceof HTMLInputElement || event.target instanceof HTMLSelectElement || event.target instanceof HTMLTextAreaElement;
-  if (event.code !== "Space" || event.repeat || editing) return;
+  const recordKey = event.code === "Space" || ["y", "z", "x"].includes(event.key.toLowerCase());
+  if (!recordKey || event.repeat || editing) return;
   event.preventDefault();
   if (running) recordNote();
 });
