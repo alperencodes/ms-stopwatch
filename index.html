@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Beatmap Millisecond Stopwatch</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <p class="eyebrow">BEATMAP TOOL</p>
+        <h1>Millisecond Stopwatch</h1>
+        <p class="hint">Press <kbd>Space</kbd> while running to record a note.</p>
+      </header>
+
+      <section class="timer-card" aria-label="Stopwatch">
+        <output id="timer" aria-live="off">0 ms</output>
+        <div class="controls">
+          <button id="startButton" class="primary" type="button">Start</button>
+          <button id="stopButton" type="button" disabled>Stop</button>
+          <button id="resetButton" class="danger" type="button">Reset</button>
+        </div>
+        <p id="status" role="status">Ready</p>
+      </section>
+
+      <section class="workspace">
+        <form id="metadataForm" autocomplete="off">
+          <h2>Beatmap details</h2>
+          <label>Song <input id="song" name="song" required /></label>
+          <label>Artist <input id="artist" name="artist" required /></label>
+          <label>Difficulty
+            <select id="difficulty" name="difficulty">
+              <option>EASY</option><option selected>MEDIUM</option><option>HARD</option>
+            </select>
+          </label>
+          <div class="field-row">
+            <label>BPM <input id="bpm" name="bpm" type="number" min="1" step="any" value="120" required /></label>
+            <label>Approach time (ms) <input id="approachTimeMs" name="approachTimeMs" type="number" min="0" step="1" value="1500" required /></label>
+          </div>
+          <button id="saveButton" class="primary save" type="submit">Save beatmap JSON</button>
+        </form>
+
+        <div class="notes-panel">
+          <div class="notes-heading">
+            <h2>Recorded notes <span id="noteCount">0</span></h2>
+            <button id="undoButton" type="button" disabled>Undo last</button>
+          </div>
+          <ol id="notesList" aria-label="Recorded note timestamps">
+            <li class="empty">No notes yet. Start the timer and press Space.</li>
+          </ol>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

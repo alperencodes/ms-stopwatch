@@ -1,0 +1,24 @@
+{
+  "song": "test_hard",
+  "artist": "nomico",
+  "difficulty": "HARD",
+  "bpm": 138,
+  "approachTimeMs": 1500,
+  "notes": [
+    {"time": 1000, "lane": "D"},
+    {"time": 2000, "lane": "F"},
+    {"time": 3000, "lane": "J"},
+    {"time": 3500, "lane": "K"},
+    {"time": 4000, "lane": "D"},
+    {"time": 4200, "lane": "K"},
+    {"time": 5000, "lane": "F"},
+    {"time": 5200, "lane": "J"},
+    {"time": 5400, "lane": "F"},
+    {"time": 5800, "lane": "K"},
+    {"time": 6000, "lane": "D"},
+    {"time": 6100, "lane": "D"},
+    {"time": 6500, "lane": "F"},
+    {"time": 6600, "lane": "J"},
+    {"time": 7000, "lane": "K"}
+  ]
+}

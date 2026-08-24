@@ -1,0 +1,17 @@
+{
+  "song": "test_easy",
+  "artist": "The Kid LAROI, Justin Bieber",
+  "difficulty": "EASY",
+  "bpm": 170,
+  "approachTimeMs": 1500,
+  "notes": [
+    {"time": 2000, "lane": "D"},
+    {"time": 2500, "lane": "F"},
+    {"time": 3000, "lane": "J"},
+    {"time": 3500, "lane": "K"},
+    {"time": 4000, "lane": "D"},
+    {"time": 4500, "lane": "K"},
+    {"time": 5000, "lane": "F"},
+    {"time": 5500, "lane": "J"}
+  ]
+}
