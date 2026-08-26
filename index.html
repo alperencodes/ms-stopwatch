@@ -12,10 +12,29 @@
       <header>
         <p class="eyebrow">BEATMAP TOOL</p>
         <h1>Millisecond Stopwatch</h1>
-        <p class="hint">Press <kbd>Space</kbd>, <kbd>Y</kbd>, <kbd>Z</kbd>, or <kbd>X</kbd> while running to record a note.</p>
+        <p class="hint"><kbd>Space</kbd> pauses or resumes. <kbd>Y</kbd>, <kbd>Z</kbd>, and <kbd>X</kbd> record notes.</p>
       </header>
 
       <section class="timer-card" aria-label="Stopwatch">
+        <div class="playback-settings">
+          <label class="song-picker" for="songSelect">Playback song
+            <select id="songSelect">
+              <option value="">No song</option>
+              <option value="resources/songs/easy.mp3">easy.mp3</option>
+              <option value="resources/songs/medium.mp3">medium.mp3</option>
+              <option value="resources/songs/hard.mp3">hard.mp3</option>
+            </select>
+          </label>
+          <label class="volume-control" for="volumeSlider">
+            <span>Volume <output id="volumeValue" for="volumeSlider">100%</output></span>
+            <input id="volumeSlider" type="range" min="0" max="100" step="1" value="100" />
+          </label>
+          <label class="timeline-control" for="timelineSlider">
+            <span>Timeline <output id="timelineValue" for="timelineSlider">0:00.000 / 0:00.000</output></span>
+            <input id="timelineSlider" type="range" min="0" max="0" step="0.001" value="0" disabled />
+          </label>
+        </div>
+        <audio id="songAudio" preload="auto"></audio>
         <output id="timer" aria-live="off">0 ms</output>
         <div class="controls">
           <button id="startButton" class="primary" type="button">Start</button>
@@ -48,7 +67,7 @@
             <button id="undoButton" type="button" disabled>Undo last</button>
           </div>
           <ol id="notesList" aria-label="Recorded note timestamps">
-            <li class="empty">No notes yet. Start the timer and press Space, Y, Z, or X.</li>
+            <li class="empty">No notes yet. Start the timer and press Y, Z, or X.</li>
           </ol>
         </div>
       </section>
